@@ -10,7 +10,7 @@ To install the twit-scraper, you'll need to install Node.js and NPM. To install 
 After installing Node.js you can install twit-scraper using NPM:
 
 ```
-npm install -g https://dl.dropbox.com/u/2361994/twit-scraper-0.3.2.tgz
+npm install -g git://github.com/mikaelbr/twitscraper.git
 ```
 
 If you get permission-problem, run the command in sudo. 
