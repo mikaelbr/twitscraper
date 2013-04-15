@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var ProgressBar = require('progress');
+
+var fs = require('fs');
+var download = require('../lib/download-script');
+
+
+program
+  .version('0.3.2')
+  .usage('[options] <input file>')
+  .option('-o, --output [value]', 'Output file')
+  .option('-d, --debug', 'Show debug data')
+  .parse(process.argv);
+
+
+var input_file = program.args[0]
+  , output_file = program.output || 'output_'+ new Date().toISOString().split("T")[0] +'.tsv';
+
+download.FLAG_DEBUG = program.debug;
+
+if(!program.debug) {
+  var bar = null;
+  download.vent.on("progress:init", function (total) {
+    console.log();
+    bar = new ProgressBar('Scraping Twitter [:bar] :percent - :elapsed / :etas ', {
+        complete: '='
+      , incomplete: ' '
+      , width: 100
+      , total: total
+    });
+  });
+
+  download.vent.on('progress:tick', function (s) {
+    bar.tick(1);
+  });
+}
+
+download.read(input_file, function (data) {
+
+  var text = "";
+  data.forEach(function (e) {
+    text += e.join("\t") + "\n";
+  });
+
+  fs.writeFile(output_file, text, function(err) {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log("File was saved");
+    }
+  });
+});

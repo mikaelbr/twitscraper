@@ -1,0 +1,18 @@
+{
+  "name": "twit-scraper",
+  "bin": {
+    "twit-scraper": "./bin/twit-scraper"
+  },
+  "author": "Mikael Brevik <mikaelbre@gmail.com>",
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "*"
+  },
+  "dependencies": {
+    "request": "~2.14.0",
+    "async": "~0.2.6",
+    "commander": "~1.1.1",
+    "progress": "~0.1.0"
+  },
+  "version": "0.3.2"
+}
