@@ -54,6 +54,7 @@ twit-scraper data/twit-dist.tsv -o output.tsv
 The input file format should be the following:
 
 > ```user_id``` ```tweet_id```  ```label```
+>
 > ```user_id``` ```tweet_id```  ```label```
 ...
 
