@@ -3,6 +3,9 @@ twit-scraper
 
 twit-scraper is a binary used for scraping the Twitter site for tweets and generate a ```.TSV``` file for output. 
 
+## Disclaimer
+This module should only be used to generate data sets from a annotated tweets, for scientific research. Please don't abuse this binary.
+
 ## Installation
 
 To install the twit-scraper, you'll need to install Node.js and NPM. To install Node.js visit the [Node.js site](http://nodejs.org) and follow the instructions. NPM is installed as a part of Node.js.
@@ -46,7 +49,7 @@ So if you want to generate dataset for file ```data/twit-dist.tsv```, you can ru
 twit-scraper data/twit-dist.tsv -o output.tsv
 ```
 
-## Input file format:
+## Input file format
 
 The input file format should be the following:
 
@@ -60,7 +63,7 @@ Where the different columns are seperated by tab (```\t```).
 Example of input file: 
 
 ```
-264221473558917120    331180650 "neutral"
+264221473558917120  331180650 "neutral"
 264091690632105984  241608245 "neutral"
 263929564907069441  223899398 "neutral"
 263759328782204928  563441482 "positive"
